@@ -1,0 +1,25 @@
+.container {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+td {
+	width: 37.5px;
+	height: 37.5px;
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+}
+
+/* Only needed for the div method of making a grid */
+/*.row {
+	display: block;
+}
+
+.grid {
+	display: inline-block;
+}*/
