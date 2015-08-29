@@ -1,7 +1,16 @@
+h1 {
+	text-align: center;
+}
+
+.button_container {
+	margin: 0 auto;
+	text-align: center;
+}
+
 .container {
 	border: 1px solid black;
 	width: 960px;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 .row {
@@ -16,4 +25,8 @@
 
 .highlight {
 	background-color: black;
+}
+
+.reset {
+	background-color: white;
 }

@@ -1,9 +1,41 @@
-var initialSize = 64;
+var initialSize = 16;
 
 $(document).ready(function() {
 	createGrid(initialSize);
-	blackHighlight();
+	runSketch('black');
 });
+
+$('#newBlack').on('click', function() {
+	newSize = prompt('Please enter the new grid size (1-64)');
+	while (newSize < 1 || newSize > 64) {
+		alert("That's not a valid input!");
+		newSize = prompt('Please enter the new grid size (1-64)');
+	}
+	$('.square').remove();
+	$('.row').remove();
+	createGrid(newSize);
+	runSketch('black');
+});
+
+$('#newColor').on('click', function() {
+	newSize = prompt('Please enter the new grid size (1-64)');
+	while (newSize < 1 || newSize > 64) {
+		alert("That's not a valid input!");
+		newSize = prompt('Please enter the new grid size (1-64)');
+	}
+	$('.square').remove();
+	$('.row').remove();
+	createGrid(newSize);
+	runSketch('color');
+});
+
+function runSketch(input) {
+	if (input === 'black') {
+		blackHighlight();
+	} else if (input === 'color') {
+		colorHighlight();
+	}
+}
 
 function createGrid(size) {
 
@@ -19,9 +51,17 @@ function createGrid(size) {
 	$('.square').css({'width':gridWidth, 'height':gridWidth});
 }
 
+function colorHighlight() {	
+	$('.square').on('mouseenter', function() {
+		var h = Math.floor((Math.random()*360) + 1);
+		randomColor = "hsl(" + h + ", 100%, 50%)";
+		$(this).css('background-color', randomColor);
+	})
+}
+
 function blackHighlight() {
 	$('.square').on('mouseenter', function() {
-		$(this).addClass('highlight');
+		$(this).css('background-color', 'black');
 	});
 }
 
